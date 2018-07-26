@@ -8,13 +8,9 @@ import * as actions from 'actions';
 class App extends Component {
   renderButton() {
     if (this.props.auth) {
-      return (
-        <button onClick={() => this.props.changeAuth(false)}>Sign Out</button>
-      );
+      return <button onClick={() => this.props.changeAuth(false)}> Sign out </button>
     } else {
-      return (
-        <button onClick={() => this.props.changeAuth(true)}>Sign In</button>
-      );
+      return <button onClick={() => this.props.changeAuth(true)}> Sign in </button>
     }
   }
 
@@ -22,14 +18,16 @@ class App extends Component {
     return (
       <ul>
         <li>
-          <Link to="/">Home</Link>
+          <Link to="/"> Home </Link>
         </li>
         <li>
-          <Link to="/post">Post A Comment</Link>
+          <Link to="/post"> Post comment </Link>
         </li>
-        <li>{this.renderButton()}</li>
+        <li>
+          {this.renderButton()}
+        </li>
       </ul>
-    );
+    )
   }
 
   render() {
@@ -44,7 +42,7 @@ class App extends Component {
 }
 
 function mapStateToProps(state) {
-  return { auth: state.auth };
+  return { auth: state.auth }
 }
 
-export default connect(mapStateToProps, actions)(App);
+export default connect(mapStateToProps, actions)(App)
